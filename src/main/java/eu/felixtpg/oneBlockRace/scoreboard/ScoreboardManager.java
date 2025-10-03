@@ -2,9 +2,8 @@ package eu.felixtpg.oneBlockRace.scoreboard;
 
 import eu.felixtpg.oneBlockRace.Main;
 import eu.felixtpg.oneBlockRace.environment.EventManager;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import fr.mrmicky.fastboard.FastBoard;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.HashMap;
