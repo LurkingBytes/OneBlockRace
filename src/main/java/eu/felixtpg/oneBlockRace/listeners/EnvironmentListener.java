@@ -80,8 +80,8 @@ public class EnvironmentListener implements Listener {
     @EventHandler
     public void onExplosion(ExplosionPrimeEvent event) {
         event.setCancelled(true);
-
     }
+
     @EventHandler
     public void onMove(PlayerMoveEvent event) {
         if (event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) return;
@@ -98,8 +98,8 @@ public class EnvironmentListener implements Listener {
 
     @EventHandler
     public void onProjectile(ProjectileLaunchEvent event) {
-        if (event.getEntity().getShooter() instanceof Player)
-            event.getEntity().sendMessage(Main.PREFIX + "§cDu darfst keine Projektilen verwenden!");
+        if (event.getEntity().getShooter() instanceof Player player)
+            player.sendMessage(Main.PREFIX + "§cDu darfst keine Projektile verwenden!");
         event.setCancelled(true);
     }
 
