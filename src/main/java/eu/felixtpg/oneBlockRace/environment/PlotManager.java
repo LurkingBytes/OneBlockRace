@@ -3,6 +3,7 @@ package eu.felixtpg.oneBlockRace.environment;
 import eu.felixtpg.oneBlockRace.Main;
 import lombok.Getter;
 import org.bukkit.*;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -159,8 +160,13 @@ public class PlotManager {
     public void updateLeaderboard() {
         LinkedHashMap<UUID, Integer> tempLeaderboard = new LinkedHashMap<>();
 
+        ConfigurationSection plots = config.getConfigurationSection("plots");
+
+        // if the config section is null return
+        if (plots == null) return;
+
         // get list of all plots
-        List<String> plotList = config.getConfigurationSection("plots").getKeys(false).stream().toList();
+        List<String> plotList = plots.getKeys(false).stream().toList();
         plotList.forEach(plot -> {
             UUID playerId = UUID.fromString(plot);
             Location plotSpawn = Main.getPlotManager().getPlotSpawn(playerId);
