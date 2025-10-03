@@ -3,6 +3,7 @@ package eu.felixtpg.oneBlockRace.environment;
 import eu.felixtpg.oneBlockRace.Main;
 import lombok.Getter;
 import org.bukkit.*;
+import org.bukkit.block.Block;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -179,7 +180,8 @@ public class PlotManager {
             int emptyBlocks = 0;
 
             while (emptyBlocks < 10) {
-                if (plotSpawn.clone().add(blockCount, 0, 0).getBlock().getType() == Material.AIR) {
+                Block block = plotSpawn.getWorld().getHighestBlockAt(plotSpawn.clone().add(blockCount, 0, 0));
+                if (block.getType() == Material.AIR || block.getType() == Material.CAVE_AIR || block.getType() == Material.VOID_AIR) {
                     emptyBlocks++;
                 } else {
                     blockCount++;
