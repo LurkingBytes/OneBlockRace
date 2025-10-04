@@ -48,6 +48,8 @@ public class EnvironmentListener implements Listener {
             player.sendMessage(Main.PREFIX + "§cDu darfst hier keine Blöcke platzieren!");
             event.setCancelled(true);
         }
+
+        Main.getPlotManager().updateLeaderboard(player);
     }
 
     @EventHandler
@@ -65,6 +67,8 @@ public class EnvironmentListener implements Listener {
             player.sendMessage(Main.PREFIX + "§cDu darfst hier keine Blöcke abbauen!");
             event.setCancelled(true);
         }
+
+        Main.getPlotManager().updateLeaderboard(player);
     }
 
     @EventHandler

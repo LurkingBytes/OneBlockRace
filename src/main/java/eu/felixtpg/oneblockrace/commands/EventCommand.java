@@ -1,6 +1,7 @@
 package eu.felixtpg.oneblockrace.commands;
 
 import eu.felixtpg.oneblockrace.Main;
+import eu.felixtpg.oneblockrace.scoreboard.ScoreboardManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
@@ -16,7 +17,11 @@ public class EventCommand implements CommandExecutor {
         if (args.length == 1) {
             if (args[0].equalsIgnoreCase("start")) {
                 if (!Main.running) {
+                    Main.getPlotManager().updateLeaderboard();
+                    Bukkit.getOnlinePlayers().forEach(ScoreboardManager::updateScoreboard);
+
                     Main.running = true;
+
                     Bukkit.broadcastMessage(" ");
                     Bukkit.broadcastMessage(Main.PREFIX + "§aDas Event wurde gestartet!");
                     Bukkit.broadcastMessage(" ");
@@ -27,6 +32,7 @@ public class EventCommand implements CommandExecutor {
             } else if (args[0].equalsIgnoreCase("pause")) {
                 if (Main.running) {
                     Main.running = false;
+
                     Bukkit.broadcastMessage(" ");
                     Bukkit.broadcastMessage(Main.PREFIX + "§cDas Event wurde angehalten!");
                     Bukkit.broadcastMessage(" ");

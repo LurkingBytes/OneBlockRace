@@ -199,6 +199,51 @@ public class PlotManager {
                 .collect(LinkedHashMap::new, (m, e) -> m.put(e.getKey(), e.getValue()), LinkedHashMap::putAll);
     }
 
+    public void updateLeaderboard(Player player) {
+        LinkedHashMap<UUID, Integer> tempLeaderboard = new LinkedHashMap<>(leaderboard);
+
+        ConfigurationSection plots = config.getConfigurationSection("plots");
+
+        // if the config section is null return
+        if (plots == null) return;
+
+        // get list of all plots
+        List<String> plotList = plots.getKeys(false).stream().toList();
+        for (String plot : plotList) {
+            UUID playerId = UUID.fromString(plot);
+
+            if (!playerId.equals(player.getUniqueId())) continue;
+
+            Location plotSpawn = Main.getPlotManager().getPlotSpawn(playerId);
+
+            // count blocks to x coordinate of the plot until block is air
+            int blockCount = 0;
+            int emptyBlocks = 0;
+
+            while (emptyBlocks < 10) {
+                Block block = plotSpawn.getWorld().getHighestBlockAt(plotSpawn.clone().add(blockCount, 0, 0));
+                if (block.getType() == Material.AIR || block.getType() == Material.CAVE_AIR || block.getType() == Material.VOID_AIR) {
+                    emptyBlocks++;
+                } else {
+                    blockCount++;
+                }
+            }
+
+            blockCount--; // subtract the start block
+            if (blockCount <= 0) {
+                tempLeaderboard.remove(playerId);
+                break;
+            }
+            tempLeaderboard.put(playerId, blockCount);
+            break;
+        }
+
+        // sort the leaderboard by block count
+        leaderboard = tempLeaderboard.entrySet().stream()
+                .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue()))
+                .collect(LinkedHashMap::new, (m, e) -> m.put(e.getKey(), e.getValue()), LinkedHashMap::putAll);
+    }
+
     /**
      * Get the player at a specific place in the leaderboard, if place applied is -1, search for the player!
      *

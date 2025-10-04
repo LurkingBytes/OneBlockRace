@@ -1,6 +1,7 @@
 package eu.felixtpg.oneblockrace.environment;
 
 import eu.felixtpg.oneblockrace.Main;
+import eu.felixtpg.oneblockrace.scoreboard.ScoreboardManager;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -34,6 +35,9 @@ public class GoalManager {
                 case 0:
                     Main.running = false;
 
+                    Main.getPlotManager().updateLeaderboard();
+                    Bukkit.getOnlinePlayers().forEach(ScoreboardManager::updateScoreboard);
+
                     Bukkit.broadcastMessage(" ");
                     Bukkit.broadcastMessage(Main.PREFIX + "§7Das Event hat geendet!");
 
@@ -66,6 +70,9 @@ public class GoalManager {
 
             if (most >= amount) {
                 Main.running = false;
+
+                Main.getPlotManager().updateLeaderboard();
+                Bukkit.getOnlinePlayers().forEach(ScoreboardManager::updateScoreboard);
 
                 Bukkit.broadcastMessage(" ");
                 Bukkit.broadcastMessage(Main.PREFIX + "§7Das Event hat geendet!");

@@ -38,7 +38,7 @@ public class EventManager {
         Bukkit.getScheduler().runTaskTimer(Main.getInstance(), () -> {
             Bukkit.getOnlinePlayers().forEach(player -> {
                 if (!nextDrop.containsKey(player.getUniqueId()))
-                    nextDrop.put(player.getUniqueId(), 10);
+                    nextDrop.put(player.getUniqueId(), DROP_INTERVAL);
 
                 if (!Main.running) {
                     player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent("§cDas Event ist pausiert!"));
@@ -56,9 +56,6 @@ public class EventManager {
                 ScoreboardManager.updateScoreboard(player);
             });
         }, 20L, 20L);
-
-        // updates the leaderboard every 5 seconds
-        Bukkit.getScheduler().runTaskTimer(Main.getInstance(), () -> Main.getPlotManager().updateLeaderboard(), 0L, 20L * 5);
     }
 
     public static void dropItem(Player player) {
