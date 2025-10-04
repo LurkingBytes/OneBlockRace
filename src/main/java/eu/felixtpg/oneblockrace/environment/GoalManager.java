@@ -1,6 +1,6 @@
-package eu.felixtpg.oneBlockRace.environment;
+package eu.felixtpg.oneblockrace.environment;
 
-import eu.felixtpg.oneBlockRace.Main;
+import eu.felixtpg.oneblockrace.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitTask;
 

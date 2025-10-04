@@ -1,7 +1,7 @@
-package eu.felixtpg.oneBlockRace.scoreboard;
+package eu.felixtpg.oneblockrace.scoreboard;
 
-import eu.felixtpg.oneBlockRace.Main;
-import eu.felixtpg.oneBlockRace.environment.EventManager;
+import eu.felixtpg.oneblockrace.Main;
+import eu.felixtpg.oneblockrace.environment.EventManager;
 import fr.mrmicky.fastboard.FastBoard;
 import org.bukkit.entity.Player;
 

@@ -51,7 +51,7 @@
                     <relocations>
                         <relocation>
                             <pattern>fr.mrmicky.fastboard</pattern>
-                            <shadedPattern>eu.felixtpg.oneBlockRace.fastboard</shadedPattern>
+                            <shadedPattern>eu.felixtpg.oneblockrace.fastboard</shadedPattern>
                         </relocation>
                     </relocations>
                 </configuration>

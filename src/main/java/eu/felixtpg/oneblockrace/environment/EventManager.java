@@ -1,8 +1,8 @@
-package eu.felixtpg.oneBlockRace.environment;
+package eu.felixtpg.oneblockrace.environment;
 
-import eu.felixtpg.oneBlockRace.Main;
-import eu.felixtpg.oneBlockRace.PluginUtils;
-import eu.felixtpg.oneBlockRace.scoreboard.ScoreboardManager;
+import eu.felixtpg.oneblockrace.Main;
+import eu.felixtpg.oneblockrace.PluginUtils;
+import eu.felixtpg.oneblockrace.scoreboard.ScoreboardManager;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;

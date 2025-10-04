@@ -1,6 +1,6 @@
-package eu.felixtpg.oneBlockRace.commands;
+package eu.felixtpg.oneblockrace.commands;
 
-import eu.felixtpg.oneBlockRace.Main;
+import eu.felixtpg.oneblockrace.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;

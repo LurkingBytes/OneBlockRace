@@ -1,7 +1,7 @@
-package eu.felixtpg.oneBlockRace.listeners;
+package eu.felixtpg.oneblockrace.listeners;
 
-import eu.felixtpg.oneBlockRace.Main;
-import eu.felixtpg.oneBlockRace.environment.PlotManager;
+import eu.felixtpg.oneblockrace.Main;
+import eu.felixtpg.oneblockrace.environment.PlotManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
