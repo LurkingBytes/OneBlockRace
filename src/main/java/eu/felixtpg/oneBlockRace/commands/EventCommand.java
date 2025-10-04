@@ -7,10 +7,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-// TODO: /event start
-// TODO: /event pause
-// TODO: /event goal <block / time> <amount / minutes>
-// TODO: /event goal clear
 public class EventCommand implements CommandExecutor {
 
     @Override
